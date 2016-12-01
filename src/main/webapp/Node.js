@@ -27,10 +27,6 @@
         return this.NodePath;
     }
 
-    p.getId = function(){
-        return this.id;
-    }
-
     //UTILS//
 
     inherit = function (child, base) {
