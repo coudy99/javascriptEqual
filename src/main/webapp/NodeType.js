@@ -1,7 +1,11 @@
 /**
  * Created by j.parenica on 1. 12. 2016.
  */
-NodeType = {
-    Color: "Color",
-    Unknown: "unknown"
-};
+(function() {
+    phoenix.json = phoenix.json|| {};
+
+    phoenix.json.NodeType = {
+        Color: "Color",
+        Unknown: "unknown"
+    };
+}());

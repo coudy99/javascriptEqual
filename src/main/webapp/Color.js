@@ -1,18 +1,20 @@
 /**
  * Created by j.parenica on 1. 12. 2016.
  */
-(function(p) {
+(function (p) {
     "use strict";
 
-    Color = function(local){
+    phoenix.json = phoenix.json || {};
 
-        this.Class = NodeType.Color;
+    phoenix.json.Color = function(local){
+
+        this.Class = phoenix.json.NodeType.Color;
 
         if(local) {
-            this.LocalPath = property.NodePath(this.Class);
+            this.LocalPath = phoenix.json.property.NodePath(this.Class);
         }
         else{
-            this.NodePath = property.NodePath(this.Class);
+            this.NodePath = phoenix.json.property.NodePath(this.Class);
         }
 
         this.RGB = "0, 0, 0, 1";
@@ -20,9 +22,9 @@
 
     }
 
-    inherit(Color, Node);
+    phoenix.json.inherit(phoenix.json.Color, phoenix.json.Node);
 
-    p = Color.prototype;
+    p = phoenix.json.Color.prototype;
 
     p.getRGB = function(){
         return this.RGB;
@@ -40,5 +42,5 @@
         return this.LocalPath;
     }
 
-})
+}());
 

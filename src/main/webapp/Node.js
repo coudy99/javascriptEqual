@@ -1,19 +1,21 @@
 /**
  * Created by j.parenica on 1. 12. 2016.
  */
-(function(p){
+(function (p){
     "use strict";
 
-    Node = function(){
-        this.Class = NodeType.Unknown;
+    phoenix.json = phoenix.json || {};
 
-        this.NodePath = new property.NodePath(this.Class);
+    phoenix.json.Node = function(){
+        this.Class = phoenix.json.NodeType.Unknown;
+
+        this.NodePath = new phoenix.json.property.NodePath(this.Class);
 
         this.id = 1;
 
     }
 
-    p = Node.prototype;
+    p = phoenix.json.Node.prototype;
 
     p.base = function(){
         return new Node();
@@ -33,7 +35,7 @@
 
     //UTILS//
 
-    inherit = function (child, base) {
+    phoenix.json.inherit = function (child, base) {
         //noinspection FunctionNamingConventionJS
         /**
          * Temp
@@ -47,4 +49,4 @@
         child.prototype = new Temp();
     };
 
-})
+}())
