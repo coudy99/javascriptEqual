@@ -13,10 +13,14 @@
 
     p = phoenix.json.property.NodePath.prototype;
 
-    p.getName = function(){
+    p.getPath = function(){
         var length = this.path.length;
 
         return this.path[length - 1];
+    }
+
+    p.setPath = function(path){
+        this.path = path;
     }
     
 }())

@@ -11,10 +11,10 @@
         this.Class = phoenix.json.NodeType.Color;
 
         if(local) {
-            this.LocalPath = phoenix.json.property.NodePath(this.Class);
+            this.LocalPath = new phoenix.json.property.NodePath(this.Class);
         }
         else{
-            this.NodePath = phoenix.json.property.NodePath(this.Class);
+            this.NodePath = new phoenix.json.property.NodePath(this.Class);
         }
 
         this.RGB = "0, 0, 0, 1";

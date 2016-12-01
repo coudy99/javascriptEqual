@@ -5,13 +5,42 @@
     var phoenix = {};
 </script>
 
+<script type="text/javascript" src="underscore-min.js"></script>
 <script type="text/javascript" src="Node.js"></script>
 <script type="text/javascript" src="NodeType.js"></script>
 <script type="text/javascript" src="property/property.NodePath.js"></script>
 <script type="text/javascript" src="Color.js"></script>
 <script type="text/javascript">
     var color1 = new phoenix.json.Color(true);
-    console.log(color1.getRGB());
+    var color2 = new phoenix.json.Color(true);
+
+    var tmp = new phoenix.json.property.NodePath("Color");
+    color1.LocalPath = tmp;
+    color2.LocalPath = tmp;
+
+    console.log(color1.valueOf());
+    console.log(color2.valueOf());
+    console.log(color1.LocalPath === color2.LocalPath);
+    console.log(_.isEqual(color1, color2));
+
+/*    Object.getOwnPropertyNames(color1).forEach(function(item, index){
+        console.log(item, index);
+    })*/
+    var index = false;
+    for(compare in color1){
+        for(comparison in color2){
+            if(compare == comparison && color1[compare] === color2[comparison]){
+                index = true
+                break;
+            }
+        }
+        if(!index){
+            console.log("Neni");
+        }
+        else{
+            index = false;
+        }
+    }
 </script>
 </body>
 </html>
