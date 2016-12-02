@@ -18,29 +18,45 @@
     color1.LocalPath = tmp;
     color2.LocalPath = tmp;
 
-    console.log(color1.valueOf());
-    console.log(color2.valueOf());
-    console.log(color1.LocalPath === color2.LocalPath);
-    console.log(_.isEqual(color1, color2));
+    console.log(color1);
+    console.log(color2);
 
-/*    Object.getOwnPropertyNames(color1).forEach(function(item, index){
-        console.log(item, index);
-    })*/
-    var index = false;
-    for(compare in color1){
-        for(comparison in color2){
-            if(compare == comparison && color1[compare] === color2[comparison]){
-                index = true
-                break;
+    var equal1 = function(obj1, obj2){
+        var index = false;
+        for(var compare in obj1){
+            for(var comparison in obj2){
+                if(compare == comparison && obj1[compare] === obj2[comparison]){
+                    index = true
+                    break;
+                }
+            }
+            if(!index){
+                return false;
+            }
+            else{
+                index = false;
             }
         }
-        if(!index){
-            console.log("Neni");
-        }
-        else{
-            index = false;
-        }
+        return true;
     }
+
+    console.log(equal1(color1, color2));
+
+    var equal2 = function (obj1, obj2) {
+        for(var compare in obj2){
+            if(typeof obj2[compare] != 'function' && (!obj1.hasOwnProperty(compare) || obj1[compare] !== obj2[compare])){
+                return false;
+            }
+            else if(typeof obj2[compare] == 'function' && typeof obj1[compare] != 'function'){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    console.log(equal2(color1, color2));
+
 </script>
 </body>
 </html>
